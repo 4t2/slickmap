@@ -59,27 +59,33 @@ class SlickMap extends ContentElement
 		$primaryRoot = deserialize($this->slickmap_root);
 
 		$this->rootPage = $this->getRootPage($objPage->id);
-
-		$objUtilityPages = $this->Database->prepare("SELECT * FROM tl_page WHERE `id` IN (".implode(',', $utilityPages).")")->execute();
-
+		
 		$utilityNav = array();
 
-		while ($objUtilityPages->next())
+		if (is_array($utilityPages) && count($utilityPages))
 		{
-			$link = '';
-
-			if ($this->rootPage && ($objPage->domain != $this->rootPage['dns']))
+			$objUtilityPages = $this->Database->prepare("SELECT * FROM tl_page WHERE `id` IN (".implode(',', $utilityPages).")")->execute();
+	
+			while ($objUtilityPages->next())
 			{
-				$link = 'http://' . $this->rootPage['dns'] . '/';
+				$link = '';
+	
+				if ($this->rootPage && ($objPage->domain != $this->rootPage['dns']))
+				{
+					$link = 'http://' . $this->rootPage['dns'] . '/';
+				}
+				
+				if ($objUtilityPages->type != 'root')
+				{
+					$link .= $this->generateFrontendUrl($objUtilityPages->row());
+				}
+	
+				$utilityNav[$link] = $objUtilityPages->title;
 			}
-			
-			if ($objUtilityPages->type != 'root')
-			{
-				$link .= $this->generateFrontendUrl($objUtilityPages->row());
-			}
-
-			$utilityNav[$link] = $objUtilityPages->title;
 		}
+
+		$this->Template->utilityNav = $utilityNav;
+
 
 		if ($primaryRoot == '')
 		{
@@ -106,9 +112,7 @@ class SlickMap extends ContentElement
 			$primaryHtml = '';
 		}
 
-		$this->Template->utilityNav = $utilityNav;
 		$this->Template->primaryList = $primaryHtml;
-		#$this->Template->debug = var_export($primaryPages, true);
 	}
 
 
