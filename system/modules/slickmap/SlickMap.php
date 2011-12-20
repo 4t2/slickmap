@@ -174,7 +174,19 @@ class SlickMap extends ContentElement
 	{
 		$arrPages = array();
 
-		$objPages = $this->Database->prepare("SELECT * FROM `tl_page` WHERE `pid`=? AND `published`='1' AND `hide`<>'1' AND `type`='regular' ORDER BY `sorting`")->execute($pageId);
+		$objPages = $this->Database->prepare("
+			SELECT
+				* 
+			FROM
+				`tl_page`
+			WHERE
+				`pid`=? AND
+				`published`='1' AND
+				`hide`<>'1' AND
+				(
+					`type`='regular' OR `type`='forward'
+				)
+			ORDER BY `sorting`")->execute($pageId);
 
 		while ($objPages->next())
 		{
