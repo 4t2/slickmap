@@ -153,8 +153,20 @@ class SlickMap extends ContentElement
 
 		if ($objPages->numRows > 0)
 		{
+			$arrPage = $objPages->row();
+
+			$arrPage['childs'] = array();
+			if ($arrPage['type'] != 'root')
+			{
+				$arrPage['link'] = $this->generateFrontendUrl($arrPage);
+			}
+			else
+			{
+				$arrPage['link'] = '';
+			}
+
 			$arrPages = array_merge(
-				array($objPages->row()),
+				array($arrPage),
 				$this->getChildPages($pageId, 1)
 			);
 		}
@@ -201,6 +213,10 @@ class SlickMap extends ContentElement
 			if ($arrPage['type'] != 'root')
 			{
 				$arrPage['link'] = $this->generateFrontendUrl($arrPage);
+			}
+			else
+			{
+				$arrPage['link'] = '';
 			}
 
 			if (($this->slickmap_stop_level == 0) || ($level < $this->slickmap_stop_level))
