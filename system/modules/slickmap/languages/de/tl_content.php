@@ -13,6 +13,7 @@ $GLOBALS['TL_LANG']['tl_content']['slickmap_utility_pages'] = array('Hilfsseiten
 $GLOBALS['TL_LANG']['tl_content']['slickmap_root'] = array('Startseite', 'Startseite der Sitemap.');
 $GLOBALS['TL_LANG']['tl_content']['slickmap_stop_level'] = array('Stoplevel', 'Bis zu welcher Tiefe sollen Seiten aufgelistet werden. Eingabe 0 um alle Seiten anzeigen zu lassen.');
 $GLOBALS['TL_LANG']['tl_content']['slickmap_articles'] = array('Artikel extra anzeigen', 'Artikel der Hauptseiten extra auflisten, wenn es mehr als einen Artikel zu der Seite gibt.');
+$GLOBALS['TL_LANG']['tl_content']['slickmap_show_hidden'] = array('Versteckte Seiten anzeigen', 'Alle Seiten anzeigen, auch wenn sie im Menü versteckt sind.');
 
 /**
  * References

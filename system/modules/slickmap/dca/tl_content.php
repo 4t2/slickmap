@@ -27,7 +27,7 @@
  * @license    http://opensource.org/licenses/lgpl-3.0.html
  */
 
-$GLOBALS['TL_DCA']['tl_content']['palettes']['slickmap'] = '{type_legend},type,headline;{slickmap_primary_legend},slickmap_root,slickmap_stop_level,slickmap_columns,slickmap_articles;{slickmap_utility_legend},slickmap_utility_pages;{expert_legend:hide},cssID,space';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['slickmap'] = '{type_legend},type,headline;{slickmap_primary_legend},slickmap_root,slickmap_stop_level,slickmap_columns,slickmap_articles,slickmap_show_hidden;{slickmap_utility_legend},slickmap_utility_pages;{expert_legend:hide},cssID,space';
 
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['slickmap_utility_pages'] = array
@@ -84,7 +84,17 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['slickmap_articles'] = array
 	'exclude'		=> true,
 	'inputType'		=> 'checkbox',
 	'eval'			=> array(
-		'tl_class'	=> 'long clr m12'
+		'tl_class'	=> 'w50 clr m12'
+	)
+);
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['slickmap_show_hidden'] = array
+(
+	'label'			=> &$GLOBALS['TL_LANG']['tl_content']['slickmap_show_hidden'],
+	'exclude'		=> true,
+	'inputType'		=> 'checkbox',
+	'eval'			=> array(
+		'tl_class'	=> 'w50 m12'
 	)
 );
 

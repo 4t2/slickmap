@@ -13,6 +13,7 @@ $GLOBALS['TL_LANG']['tl_content']['slickmap_utility_pages'] = array('Utility pag
 $GLOBALS['TL_LANG']['tl_content']['slickmap_root'] = array('Root page', 'Root page of the sitemap.');
 $GLOBALS['TL_LANG']['tl_content']['slickmap_stop_level'] = array('Stoplevel', 'Depth of the sitemap. Enter 0 to show all levels.');
 $GLOBALS['TL_LANG']['tl_content']['slickmap_articles'] = array('Show articles', 'Show articles if there are more than one article per page.');
+$GLOBALS['TL_LANG']['tl_content']['slickmap_show_hidden'] = array('Show hidden pages', 'Show all pages, regardless they are hidden in menu.');
 
 /**
  * References
