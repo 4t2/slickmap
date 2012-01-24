@@ -64,7 +64,7 @@ class SlickMap extends ContentElement
 
 		if (is_array($utilityPages) && count($utilityPages))
 		{
-			$objUtilityPages = $this->Database->prepare("SELECT * FROM tl_page WHERE `id` IN (".implode(',', $utilityPages).")")->execute();
+			$objUtilityPages = $this->Database->prepare("SELECT * FROM tl_page WHERE `id` IN (".implode(',', $utilityPages).") ORDER BY `sorting`")->execute();
 	
 			while ($objUtilityPages->next())
 			{
