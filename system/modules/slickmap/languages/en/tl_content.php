@@ -14,6 +14,7 @@ $GLOBALS['TL_LANG']['tl_content']['slickmap_root'] = array('Root page', 'Root pa
 $GLOBALS['TL_LANG']['tl_content']['slickmap_stop_level'] = array('Stoplevel', 'Depth of the sitemap. Enter 0 to show all levels.');
 $GLOBALS['TL_LANG']['tl_content']['slickmap_articles'] = array('Show articles', 'Show articles if there are more than one article per page.');
 $GLOBALS['TL_LANG']['tl_content']['slickmap_show_hidden'] = array('Show hidden pages', 'Show all pages, regardless they are hidden in menu.');
+$GLOBALS['TL_LANG']['tl_content']['slickmap_ignore_sitemap'] = array('Ignore sitemap settings', 'Show all pages, regardless they are excluded from Contao sitemap settings.');
 
 /**
  * References

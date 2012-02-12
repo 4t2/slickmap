@@ -195,6 +195,7 @@ class SlickMap extends ContentElement
 				`pid`=? AND
 				".(!$this->Input->cookie('FE_PREVIEW') ? " `published`='1' AND " : "")."
 				".($this->slickmap_show_hidden==''?" `hide`<>'1' AND ":"")."
+				".($this->slickmap_ignore_sitemap==''?" `sitemap`<>'map_never' AND ":"")."
 				(
 					`type`='regular' OR `type`='forward'
 				)
