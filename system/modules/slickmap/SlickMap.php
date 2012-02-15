@@ -21,9 +21,9 @@
  * Software Foundation website at <http://www.gnu.org/licenses/>.
  *
  * PHP version 5
- * @copyright  Lingo4you 2011
+ * @copyright  Lingo4you 2012
  * @author     Mario Müller <http://www.lingo4u.de/>
- * @package    PageTeaser
+ * @package    SlickMap
  * @license    http://opensource.org/licenses/lgpl-3.0.html
  */
 
@@ -55,6 +55,8 @@ class SlickMap extends ContentElement
 	{
 		global $objPage;
 		
+		$this->import('Environment');
+		
 		$utilityPages = deserialize($this->slickmap_utility_pages);
 		$primaryRoot = deserialize($this->slickmap_root);
 
@@ -69,10 +71,12 @@ class SlickMap extends ContentElement
 			while ($objUtilityPages->next())
 			{
 				$link = '';
+				
+				$utilityRootPage = $this->getRootPage($objUtilityPages->id);
 	
-				if ($this->rootPage && ($objPage->domain != $this->rootPage['dns']))
+				if (strlen($utilityRootPage['dns']) && $utilityRootPage['dns'] != $this->Environment->httpHost)
 				{
-					$link = 'http://' . $this->rootPage['dns'] . '/';
+					$link = 'http://' . $utilityRootPage['dns'] . $this->Environment->path . '/';
 				}
 				
 				if ($objUtilityPages->type != 'root')
@@ -285,13 +289,18 @@ class SlickMap extends ContentElement
 				$linkTitle = $arrPage['alias'];
 			}
 
-			if (($this->homePage['dns'] != '') && ($this->homePage['dns'] != $this->rootPage['dns']))
+			if (strlen($linkTitle) > 16)
 			{
-				$arrPage['link'] = 'http://' . $this->homePage['dns'] . '/' . $arrPage['link'];
+				$linkTitle = substr($linkTitle, 0, 16) . '…';
+			}
+
+			if (($this->homePage['dns'] != '') && ($this->homePage['dns'] != $this->Environment->httpHost))
+			{
+				$arrPage['link'] = 'http://' . $this->homePage['dns'] . $this->Environment->path . '/' . $arrPage['link'];
 			}
 			else
 			{
-				$arrPage['link'] = '/' . $arrPage['link'];
+				$arrPage['link'] = $arrPage['link'];
 			}
 
 			$html .= '<li'.($liParam?$liParam:'').'><a href="'.$arrPage['link'].'" title="'.$linkTitle.'">'.$arrPage['title'].'</a>';
@@ -300,13 +309,13 @@ class SlickMap extends ContentElement
 			{
 				$html .= $this->getHtmlList($arrPage['childs']);
 			}
-			
+
 			$html .= '</li>';
 			$liParam = false;
 		}
 
 		$html .= '</ul>';
-		
+
 		return $html;
 	}
 
@@ -315,7 +324,7 @@ class SlickMap extends ContentElement
 	{
 		if ($arrPage['domain'] != $this->rootPage['dns'])
 		{
-			$link = 'http://' . $this->rootPage['dns'] . '/';
+			$link = 'http://' . $this->rootPage['dns'] . $this->Environment->base . '/';
 		}
 		else
 		{
