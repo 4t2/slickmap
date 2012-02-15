@@ -1,0 +1,44 @@
+======================================
+SlickMap CSS - Contao Module CHANGELOG
+======================================
+
+
+Version 1.0.6
+---------------------------
+- Pfade im Stylesheet jetzt relative URLs
+- Styleheet komprimiert und slickmap.src.css hinzugefügt
+
+Version 1.0.5
+---------------------------
+- Seiten, die nicht in der Sitemap von Contao angezeigt werden sollen,
+  werden jetzt auch in der Slickmap nicht mehr angezeigt.
+  Über einen Schalter können sie trotzdem angezeigt werden
+
+Version 1.0.4
+---------------------------
+- korrekte Sortierung von Hilfsseiten
+
+Version 1.0.3
+---------------------------
+- Wurzelseite hatte keinen Link
+
+Version 1.0.2
+---------------------------
+- Seiten anzeigen lassen, die im Menü versteckt sind
+
+Version 1.0.1
+---------------------------
+- erste stabile Version (sollte eigentlich 1.0.0 sein :)
+
+Version 1.0.0 RC 1
+---------------------------
+- Seiten vom Typ „Interne Weiterleitung“ berücksichtigen
+- englische Lokalisierung 
+
+Version 1.0.0 Beta 2
+---------------------------
+- Exception, wenn keine Hilfsseiten angegeben sind
+
+Version 1.0.0 Beta 1
+---------------------------
+- Erste Beta-Version der Erweiterung
