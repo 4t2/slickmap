@@ -109,7 +109,7 @@ class SlickMap extends ContentElement
 			
 			$this->homePage = $this->getRootPage($primaryPages[0]['id']);
 
-			$primaryHtml = $this->getHtmlList($primaryPages, ' id="primaryNav" class="col'.$slickmapColumns.'"', ' id="primaryHome"');
+			$primaryHtml = $this->getHtmlList($primaryPages, $slickmapColumns, ' id="primaryNav" class="col'.$slickmapColumns.'"', ' id="primaryHome"');
 		}
 		else
 		{
@@ -278,8 +278,10 @@ class SlickMap extends ContentElement
 	/**
 	 * get html list
 	 */
-	protected function getHtmlList($arrPages, $ulParam = false, $liParam = false)
+	protected function getHtmlList($arrPages, $slickmapColumns, $ulParam = false, $liParam = false)
 	{
+		$maxTitleLength = floor(80 / $slickmapColumns);
+
 		$html = '<ul'.($ulParam?$ulParam:'').'>';
 
 		foreach ($arrPages as $arrPage)
@@ -289,9 +291,9 @@ class SlickMap extends ContentElement
 				$linkTitle = $arrPage['alias'];
 			}
 
-			if (strlen($linkTitle) > 16)
+			if (strlen($linkTitle) > $maxTitleLength)
 			{
-				$linkTitle = substr($linkTitle, 0, 16) . '…';
+				$linkTitle = substr($linkTitle, 0, $maxTitleLength) . '…';
 			}
 
 			if (($this->homePage['dns'] != '') && ($this->homePage['dns'] != $this->Environment->httpHost))
@@ -307,7 +309,7 @@ class SlickMap extends ContentElement
 
 			if (count($arrPage['childs']) > 0)
 			{
-				$html .= $this->getHtmlList($arrPage['childs']);
+				$html .= $this->getHtmlList($arrPage['childs'], $slickmapColumns);
 			}
 
 			$html .= '</li>';

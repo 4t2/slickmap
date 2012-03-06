@@ -2,8 +2,15 @@
 SlickMap CSS - Contao Module CHANGELOG
 ======================================
 
+Version 1.0.8 (2012-03)
+---------------------------
+- Alias-Länge im Pfad wird automatisch gekürzt
 
-Version 1.0.6
+Version 1.0.7 (2012-02-15)
+---------------------------
+- Korrekturen für den Installationspfad und DNS
+
+Version 1.0.6 (2012-02-13)
 ---------------------------
 - Pfade im Stylesheet jetzt relative URLs
 - Styleheet komprimiert und slickmap.src.css hinzugefügt
