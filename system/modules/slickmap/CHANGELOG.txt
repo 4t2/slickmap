@@ -5,6 +5,7 @@ SlickMap CSS - Contao Module CHANGELOG
 Version 1.0.8 (2012-03)
 ---------------------------
 - Alias-Länge im Pfad wird automatisch gekürzt
+- Unterseiten von nicht veröffentlichten Seiten einbeziehen
 
 Version 1.0.7 (2012-02-15)
 ---------------------------

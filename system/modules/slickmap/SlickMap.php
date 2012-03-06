@@ -197,7 +197,6 @@ class SlickMap extends ContentElement
 				`tl_page`
 			WHERE
 				`pid`=? AND
-				".(!$this->Input->cookie('FE_PREVIEW') ? " `published`='1' AND " : "")."
 				".($this->slickmap_show_hidden==''?" `hide`<>'1' AND ":"")."
 				".($this->slickmap_ignore_sitemap==''?" `sitemap`<>'map_never' AND ":"")."
 				(
@@ -207,36 +206,43 @@ class SlickMap extends ContentElement
 
 		while ($objPages->next())
 		{
-			$arrPage = $objPages->row();
-			$arrPage['childs'] = array();
-
-			if ($this->slickmap_articles == '1')
+			if ($objPages->published == '1' || $this->Input->cookie('FE_PREVIEW'))
 			{
-				$arrPage['childs'] = $this->getArticles($arrPage);
-			}
-
-			if ($arrPage['type'] != 'root')
-			{
-				$arrPage['link'] = $this->generateFrontendUrl($arrPage);
-			}
-			else
-			{
-				$arrPage['link'] = '';
-			}
-
-			if (($this->slickmap_stop_level == 0) || ($level < $this->slickmap_stop_level))
-			{
-				if (count($arrPage['childs']) > 0)
+				$arrPage = $objPages->row();
+				$arrPage['childs'] = array();
+	
+				if ($this->slickmap_articles == '1')
 				{
-					$arrPage['childs'] = array_merge($arrPage['childs'], $this->getChildPages($arrPage['id'], $level+1));
+					$arrPage['childs'] = $this->getArticles($arrPage);
+				}
+	
+				if ($arrPage['type'] != 'root')
+				{
+					$arrPage['link'] = $this->generateFrontendUrl($arrPage);
 				}
 				else
 				{
-					$arrPage['childs'] = $this->getChildPages($arrPage['id'], $level+1);
+					$arrPage['link'] = '';
 				}
-			}
+	
+				if (($this->slickmap_stop_level == 0) || ($level < $this->slickmap_stop_level))
+				{
+					if (count($arrPage['childs']) > 0)
+					{
+						$arrPage['childs'] = array_merge($arrPage['childs'], $this->getChildPages($arrPage['id'], $level+1));
+					}
+					else
+					{
+						$arrPage['childs'] = $this->getChildPages($arrPage['id'], $level+1);
+					}
+				}
 
-			$arrPages[] = $arrPage;
+				$arrPages[] = $arrPage;
+			}
+			else
+			{
+				$arrPages = array_merge($arrPages, $this->getChildPages($objPages->id, $level));
+			}
 		}
 
 		return $arrPages;
