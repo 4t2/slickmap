@@ -2,14 +2,14 @@
 	Reset Styles (from meyerweb.com)
 ------------------------------------------------------------ */
 
-slickmap.section, slickmap.div, slickmap.span, slickmap.applet, slickmap.object, slickmap.iframe,
-h1, slickmap.h2, slickmap.h3, slickmap.h4, slickmap.h5, slickmap.h6, slickmap.p, slickmap.blockquote, slickmap.pre,
-a, slickmap.abbr, slickmap.acronym, slickmap.address, slickmap.big, slickmap.cite, slickmap.code,
-del, slickmap.dfn, slickmap.em, slickmap.font, slickmap.img, slickmap.ins, slickmap.kbd, slickmap.q, slickmap.s, slickmap.samp,
-small, slickmap.strike, slickmap.strong, slickmap.sub, slickmap.sup, slickmap.tt, slickmap.var,
-dl, slickmap.dt, slickmap.dd, slickmap.ol, slickmap.ul, slickmap.li,
-fieldset, slickmap.form, slickmap.label, slickmap.legend,
-table, slickmap.caption, slickmap.tbody, slickmap.tfoot, slickmap.thead, slickmap.tr, slickmap.th, slickmap.td {
+.ce_slickmap.section, .ce_slickmap.div, .ce_slickmap.span, .ce_slickmap.applet, .ce_slickmap.object, .ce_slickmap.iframe,
+h1, .ce_slickmap.h2, .ce_slickmap.h3, .ce_slickmap.h4, .ce_slickmap.h5, .ce_slickmap.h6, .ce_slickmap.p, .ce_slickmap.blockquote, .ce_slickmap.pre,
+a, .ce_slickmap.abbr, .ce_slickmap.acronym, .ce_slickmap.address, .ce_slickmap.big, .ce_slickmap.cite, .ce_slickmap.code,
+del, .ce_slickmap.dfn, .ce_slickmap.em, .ce_slickmap.font, .ce_slickmap.img, .ce_slickmap.ins, .ce_slickmap.kbd, .ce_slickmap.q, .ce_slickmap.s, .ce_slickmap.samp,
+small, .ce_slickmap.strike, .ce_slickmap.strong, .ce_slickmap.sub, .ce_slickmap.sup, .ce_slickmap.tt, .ce_slickmap.var,
+dl, .ce_slickmap.dt, .ce_slickmap.dd, .ce_slickmap.ol, .ce_slickmap.ul, .ce_slickmap.li,
+fieldset, .ce_slickmap.form, .ce_slickmap.label, .ce_slickmap.legend,
+table, .ce_slickmap.caption, .ce_slickmap.tbody, .ce_slickmap.tfoot, .ce_slickmap.thead, .ce_slickmap.tr, .ce_slickmap.th, .ce_slickmap.td {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -103,10 +103,12 @@ table, slickmap.caption, slickmap.tbody, slickmap.tfoot, slickmap.thead, slickma
 	color: black;	
 	background: #c3eafb url('../images/white-highlight.png') top left repeat-x;
 	border: 2px solid #b5d9ea;
+	border-radius: 5px;
+	box-shadow: rgba(0,0,0,0.5) 2px 2px 2px;
 	-moz-border-radius: 5px;
+	-moz-box-shadow: rgba(0,0,0,0.5) 2px 2px 2px; /* FF 3.5+ */
 	-webkit-border-radius: 5px;
-	-webkit-box-shadow: rgba(0,0,0,0.5) 2px 2px 2px; 
-	-moz-box-shadow: rgba(0,0,0,0.5) 2px 2px 2px; /* FF 3.5+ */	
+	-webkit-box-shadow: rgba(0,0,0,0.5) 2px 2px 2px;
 }
 #primaryNav li a:hover {
 	background-color: #e2f4fd;
@@ -220,10 +222,12 @@ table, slickmap.caption, slickmap.tbody, slickmap.tfoot, slickmap.thead, slickma
 	text-align: center;
 	color: black;
 	background: #fff7aa url('../images/white-highlight.png') top left repeat-x;
+	border-radius: 5px;
+	box-shadow: rgba(0,0,0,0.5) 2px 2px 2px;
 	-moz-border-radius: 5px;
+	-moz-box-shadow: rgba(0,0,0,0.5) 2px 2px 2px; /* FF 3.5+ */
 	-webkit-border-radius: 5px;
 	-webkit-box-shadow: rgba(0,0,0,0.5) 2px 2px 2px; 
-	-moz-box-shadow: rgba(0,0,0,0.5) 2px 2px 2px; /* FF 3.5+ */	
 }
 #utilityNav li a:hover {
 	background-color: #fffce5;
