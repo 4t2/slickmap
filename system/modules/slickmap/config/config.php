@@ -33,6 +33,4 @@
  */
 $GLOBALS['TL_CTE']['includes']['slickmap'] = 'SlickMap';
 
-$GLOBALS['SLICKMAP']['CSS'] = 'system/modules/slickmap/html/css/slickmap.css';
-
-?>
+$GLOBALS['SLICKMAP']['CSS'] = 'system/modules/slickmap/assets/styles/slickmap.css';

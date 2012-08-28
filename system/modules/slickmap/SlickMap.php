@@ -348,5 +348,3 @@ class SlickMap extends ContentElement
 	}
 
 }
-
-?>
