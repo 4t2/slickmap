@@ -21,8 +21,8 @@
  * Software Foundation website at <http://www.gnu.org/licenses/>.
  *
  * PHP version 5
- * @copyright  Lingo4you 2011
- * @author     Mario Müller <http://www.lingo4u.de/>
+ * @copyright  Lingo4you 2013
+ * @author     Mario Müller <http://www.lingolia.com/>
  * @package    SlickMap
  * @license    http://opensource.org/licenses/lgpl-3.0.html
  */
@@ -33,10 +33,12 @@ $GLOBALS['TL_DCA']['tl_content']['palettes']['slickmap'] = '{type_legend},type,h
 $GLOBALS['TL_DCA']['tl_content']['fields']['slickmap_utility_pages'] = array
 (
 	'label'			=> &$GLOBALS['TL_LANG']['tl_content']['slickmap_utility_pages'],
-	'exclude'                 => true,
-	'inputType'               => 'pageTree',
-	'eval'                    => array(
+	'exclude'		=> true,
+	'inputType'		=> 'pageTree',
+	'eval'			=> array
+	(
 		'mandatory'	=> false,
+		'multiple'	=> true,
 		'fieldType'	=> 'checkbox'
 	)
 );
@@ -44,9 +46,10 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['slickmap_utility_pages'] = array
 $GLOBALS['TL_DCA']['tl_content']['fields']['slickmap_root'] = array
 (
 	'label'			=> &$GLOBALS['TL_LANG']['tl_content']['slickmap_root'],
-	'exclude'                 => true,
-	'inputType'               => 'pageTree',
-	'eval'                    => array(
+	'exclude'		=> true,
+	'inputType'		=> 'pageTree',
+	'eval'			=> array
+	(
 		'mandatory'	=> false,
 		'fieldType'	=> 'radio'
 	)
@@ -57,7 +60,8 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['slickmap_stop_level'] = array
 	'label'			=> &$GLOBALS['TL_LANG']['tl_content']['slickmap_stop_level'],
 	'exclude'		=> true,
 	'inputType'		=> 'text',
-	'eval'			=> array(
+	'eval'			=> array
+	(
 		'tl_class'	=> 'w50',
 		'rgxp'		=> 'digit',
 		'maxlength'	=> 2
@@ -66,12 +70,13 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['slickmap_stop_level'] = array
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['slickmap_columns'] = array
 (
-	'label'                   => &$GLOBALS['TL_LANG']['tl_content']['slickmap_columns']['title'],
-	'exclude'                 => true,
-	'inputType'               => 'select',
-	'options'				  => array('auto', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'),
-	'reference'				  => &$GLOBALS['TL_LANG']['tl_content']['slickmap_columns']['reference'],
-	'eval'                    => array(
+	'label'			=> &$GLOBALS['TL_LANG']['tl_content']['slickmap_columns']['title'],
+	'exclude'		=> true,
+	'inputType'		=> 'select',
+	'options'		=> array('auto', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'),
+	'reference'		=> &$GLOBALS['TL_LANG']['tl_content']['slickmap_columns']['reference'],
+	'eval'			=> array
+	(
 		'includeBlankOption'	=> false,
 		'maxlength'				=> 4,
 		'tl_class'				=> 'w50'
@@ -83,7 +88,8 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['slickmap_articles'] = array
 	'label'			=> &$GLOBALS['TL_LANG']['tl_content']['slickmap_articles'],
 	'exclude'		=> true,
 	'inputType'		=> 'checkbox',
-	'eval'			=> array(
+	'eval'			=> array
+	(
 		'tl_class'	=> 'w50 clr m12'
 	)
 );
@@ -93,7 +99,8 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['slickmap_show_hidden'] = array
 	'label'			=> &$GLOBALS['TL_LANG']['tl_content']['slickmap_show_hidden'],
 	'exclude'		=> true,
 	'inputType'		=> 'checkbox',
-	'eval'			=> array(
+	'eval'			=> array
+	(
 		'tl_class'	=> 'w50 m12'
 	)
 );
@@ -103,9 +110,8 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['slickmap_ignore_sitemap'] = array
 	'label'			=> &$GLOBALS['TL_LANG']['tl_content']['slickmap_ignore_sitemap'],
 	'exclude'		=> true,
 	'inputType'		=> 'checkbox',
-	'eval'			=> array(
+	'eval'			=> array
+	(
 		'tl_class'	=> 'w50 m12'
 	)
 );
-
-?>
